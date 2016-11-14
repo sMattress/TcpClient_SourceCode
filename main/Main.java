@@ -2,6 +2,7 @@ package main;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import model.APIsMsg;
 import model.MockHardware;
 import wtf.socket.*;
 
@@ -33,9 +34,9 @@ public class Main {
                 .setIp(ip)
                 .setPort(port)
                 .setLocalName(name)
-//                .setUseHeartbeat(true)
-//                .setHeartbeatPeriod(3_000)
-//                .setHeartbeatBreakTime(3)
+                .setUseHeartbeat(true)
+                .setHeartbeatPeriod(5 * 60 * 1000)
+                .setHeartbeatBreakTime(1)
         );
 
         // 添加新会话建立监听者
@@ -89,14 +90,11 @@ public class Main {
 
     private static void register() {
 
-        JSONObject register = new JSONObject();
-        register.put("cmd", 64);
-        register.put("version", "1.0");
-        JSONArray params = new JSONArray();
+        APIsMsg register = new APIsMsg();
+        register.setCmd(64);
         JSONObject param = new JSONObject();
         param.put("deviceType", "MockDevice");
-        params.add(param);
-        register.put("params", params);
+        register.addParam(param);
 
         // 向服务器注册模拟硬件
         WTFSocketMsg registerMsg = new WTFSocketMsg().setBody(register);

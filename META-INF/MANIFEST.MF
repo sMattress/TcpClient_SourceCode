@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Class-Path: ./libs/commons-lang-2.6.jar ./libs/fastjson-1.2.9.jar ./li
- bs/wtf-socket-1.2.2.jar
+ bs/wtf.socket.client-1.2.3.jar
 Main-Class: main.Main
 
