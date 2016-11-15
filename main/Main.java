@@ -11,8 +11,8 @@ public class Main {
     public static void main(String[] args) {
 
         // 云服务器1
-        String ip = "139.224.46.85";
-//        String ip = "192.168.1.113";
+//        String ip = "139.224.46.85";
+        String ip = "192.168.1.113";
         int port = 1234;
 
         String name = "MockHardware";
